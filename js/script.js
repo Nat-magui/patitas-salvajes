@@ -63,12 +63,10 @@ document.addEventListener("DOMContentLoaded", () => {
       navLista.classList.toggle("activa");
     });
 
-    // También cerramos el menú si se hace clic en un enlace (opcional, UX mejorada)
     navLista.querySelectorAll("a").forEach((enlace) => {
       enlace.addEventListener("click", () => {
         navLista.classList.remove("activa");
       });
     });
   }
-
 });

@@ -31,17 +31,23 @@
   /* Navegación: ajustar lista y espaciado */
   .menu-toggle {
     display: block;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    margin-left: 1rem;
   }
 
   .nav-lista {
     display: none; /* Oculta menú por defecto en mobile */
     flex-direction: column;
-    gap: 1rem;
-    align-items: center;
     background-color: #fcdde5;
+    position: absolute;
+    top: 100%;
+    right: 0;
     padding: 1rem;
-    margin-top: 1rem;
     border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   }
 
   .nav-lista.activa {
@@ -126,7 +132,6 @@
     padding: 8px 14px;
   }
 }
-
 
 /* ===================================== */
 /* Menú Hamburguesa (Mobile) */

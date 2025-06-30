@@ -2,66 +2,83 @@
 /* MEDIA QUERIES (Responsivo - Móviles) */
 /* ===================================== */
 @media (max-width: 1024px) and (min-width: 769px) {
-  /* Productos y reseñas en dos columnas */
   .galeria-michis,
   .reseñas-grid {
     grid-template-columns: repeat(2, 1fr);
     justify-items: center;
   }
-
-  /* Tarjetas más anchas pero centradas */
   .producto-card,
   .michi-card,
   .reseña-card {
     width: 90%;
     max-width: 400px;
   }
-
-  /* Ajuste del texto en portada */
   .texto-portada h1 {
     font-size: 2rem;
   }
-
   .texto-portada p {
     font-size: 1.1rem;
   }
 }
 
 @media (max-width: 768px) {
-  /* Navegación: ajustar lista y espaciado */
   .menu-toggle {
-    display: block;
-    background: none;
+    display: block !important;
+    background-color: var(--verde-salvajes);
     border: none;
     font-size: 2rem;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
     cursor: pointer;
+    color: white;
     margin-left: 1rem;
+    z-index: 1001;
+    margin-right: 1rem;
+    margin-left: 0;
   }
 
   .nav-lista {
-    display: none; /* Oculta menú por defecto en mobile */
+    display: none;
     flex-direction: column;
     background-color: #fcdde5;
     position: absolute;
     top: 100%;
     right: 0;
     padding: 1rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 0;
+    border-radius: 0 0 0 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
   }
 
   .nav-lista.activa {
-    display: flex; /* Muestra el menú al hacer clic */
+    display: flex;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
   }
 
-  /* Producto y Reseñas: de fila a columna */
+  .navegacion {
+    flex-wrap: wrap;
+    position: relative;
+    flex-direction: row-reverse;
+  }
+
+  .logo {
+    margin-left: 1rem;
+    margin-right: 0;
+  }
+
   .galeria-michis,
   .reseñas-grid {
     grid-template-columns: 1fr !important;
     justify-items: center;
   }
 
-  /* Tarjetas: ajustar tamaño en móviles */
   .producto-card,
   .michi-card,
   .reseña-card {
@@ -69,21 +86,18 @@
     margin-bottom: 1rem;
   }
 
-  /* Imagen destacada en index */
   .portada img {
     height: auto;
     max-height: 300px;
     object-fit: cover;
   }
 
-  /* Video responsive (YouTube iframe) */
   .video-responsive iframe {
     width: 100% !important;
     height: auto !important;
     aspect-ratio: 16 / 9;
   }
 
-  /* Ajuste del texto superpuesto en portada */
   .portada .portada-texto {
     padding: 1rem;
     font-size: 1rem;
@@ -104,33 +118,48 @@
 }
 
 @media (max-width: 480px) {
-  /* Imagen de portada más baja en celulares */
   .bienvenida-superpuesta img {
     max-height: 240px;
   }
 
-  /* Contenedor del texto superpuesto */
   .texto-portada {
     padding: 1rem;
     font-size: 0.9rem;
   }
 
-  /* Título más pequeño */
   .texto-portada h1 {
     font-size: 1.3rem;
     margin-bottom: 0.5rem;
   }
 
-  /* Párrafo más legible */
   .texto-portada p {
     font-size: 0.95rem;
   }
 
-  /* Botón de llamado a la acción más compacto */
   .boton-cta {
     font-size: 0.85rem;
     padding: 8px 14px;
   }
+}
+
+@media (min-width: 769px) {
+  .nav-lista {
+    display: flex !important;
+    position: static;
+    flex-direction: row;
+    opacity: 1 !important;
+    pointer-events: auto;
+  }
+
+  .menu-toggle {
+    display: none !important;
+    margin-right: 1rem;
+    margin-left: 0;
+  }
+}
+
+.menu-toggle {
+  display: none;
 }
 
 /* ===================================== */
@@ -140,12 +169,6 @@
 /* Oculta el botón en pantallas grandes */
 .menu-toggle {
   display: none;
-  background-color: var(--verde-salvajes, #c8d8b9);
-  border: none;
-  font-size: 2rem;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-  cursor: pointer;
 }
 
 /* Fuente principal aplicada a todo el sitio */
@@ -183,7 +206,6 @@ header {
   list-style: none; /* Quita los puntitos de lista */
   padding: 0;
   margin: 0;
-  display: flex; /* Flex horizontal */
   justify-content: center; /* Centra los items */
   gap: 1rem; /* Separacion entre links */
 }

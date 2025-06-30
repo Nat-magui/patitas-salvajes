@@ -97,6 +97,37 @@
   }
 }
 
+@media (max-width: 480px) {
+  /* Imagen de portada más baja en celulares */
+  .bienvenida-superpuesta img {
+    max-height: 240px;
+  }
+
+  /* Contenedor del texto superpuesto */
+  .texto-portada {
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
+
+  /* Título más pequeño */
+  .texto-portada h1 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+  }
+
+  /* Párrafo más legible */
+  .texto-portada p {
+    font-size: 0.95rem;
+  }
+
+  /* Botón de llamado a la acción más compacto */
+  .boton-cta {
+    font-size: 0.85rem;
+    padding: 8px 14px;
+  }
+}
+
+
 /* ===================================== */
 /* Menú Hamburguesa (Mobile) */
 /* ===================================== */

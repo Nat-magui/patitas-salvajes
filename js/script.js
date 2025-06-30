@@ -54,4 +54,23 @@ document.addEventListener("DOMContentLoaded", () => {
     const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
     contadorCarrito.textContent = carrito.length;
   }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const toggleBtn = document.querySelector(".menu-toggle");
+    const navLista = document.querySelector(".nav-lista");
+
+    if (toggleBtn && navLista) {
+      toggleBtn.addEventListener("click", () => {
+        navLista.classList.toggle("activa");
+      });
+
+      // Cierra el menú si se hace clic en un enlace (opcional)
+      navLista.querySelectorAll("a").forEach((enlace) => {
+        enlace.addEventListener("click", () => {
+          navLista.classList.remove("activa");
+        });
+      });
+    }
+  });
+
 });

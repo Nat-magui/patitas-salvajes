@@ -1,3 +1,117 @@
+/* ===================================== */
+/* MEDIA QUERIES (Responsivo - Móviles) */
+/* ===================================== */
+@media (max-width: 1024px) and (min-width: 769px) {
+  /* Productos y reseñas en dos columnas */
+  .galeria-michis,
+  .reseñas-grid {
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+  }
+
+  /* Tarjetas más anchas pero centradas */
+  .producto-card,
+  .michi-card,
+  .reseña-card {
+    width: 90%;
+    max-width: 400px;
+  }
+
+  /* Ajuste del texto en portada */
+  .texto-portada h1 {
+    font-size: 2rem;
+  }
+
+  .texto-portada p {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Navegación: ajustar lista y espaciado */
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-lista {
+    display: none; /* Oculta menú por defecto en mobile */
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    background-color: #fcdde5;
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 12px;
+  }
+
+  .nav-lista.activa {
+    display: flex; /* Muestra el menú al hacer clic */
+  }
+
+  /* Producto y Reseñas: de fila a columna */
+  .galeria-michis,
+  .reseñas-grid {
+    grid-template-columns: 1fr !important;
+    justify-items: center;
+  }
+
+  /* Tarjetas: ajustar tamaño en móviles */
+  .producto-card,
+  .michi-card,
+  .reseña-card {
+    width: 90% !important;
+    margin-bottom: 1rem;
+  }
+
+  /* Imagen destacada en index */
+  .portada img {
+    height: auto;
+    max-height: 300px;
+    object-fit: cover;
+  }
+
+  /* Video responsive (YouTube iframe) */
+  .video-responsive iframe {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 16 / 9;
+  }
+
+  /* Ajuste del texto superpuesto en portada */
+  .portada .portada-texto {
+    padding: 1rem;
+    font-size: 1rem;
+  }
+
+  .texto-portada h1 {
+    font-size: 1.5rem;
+  }
+
+  .texto-portada p {
+    font-size: 1rem;
+  }
+
+  .boton-cta {
+    font-size: 0.9rem;
+    padding: 10px 16px;
+  }
+}
+
+/* ===================================== */
+/* Menú Hamburguesa (Mobile) */
+/* ===================================== */
+
+/* Oculta el botón en pantallas grandes */
+.menu-toggle {
+  display: none;
+  background-color: var(--verde-salvajes, #c8d8b9);
+  border: none;
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
 /* Fuente principal aplicada a todo el sitio */
 html,
 body {
@@ -108,16 +222,6 @@ main {
 .texto-portada p {
   font-size: 1.2rem;
   margin: 0;
-}
-
-@media (max-width: 600px) {
-  .texto-portada h1 {
-    font-size: 1.5rem;
-  }
-
-  .texto-portada p {
-    font-size: 1rem;
-  }
 }
 
 /* Imagen destacada en index.html */

@@ -24,8 +24,17 @@
       <!-- Encabezado con menú de navegación -->
       <header>
         <nav class="navegacion" aria-label="Navegación principal">
+          <!-- Botón hamburguesa para pantallas chicas -->
+          <button class="menu-toggle" aria-label="Abrir menú de navegación">
+            ☰
+          </button>
 
-          <img src="img/logo.png" alt="Logotipo de Patitas Felices" class="logo" role="img" />
+          <img
+            src="img/logo.png"
+            alt="Logotipo de Patitas Felices"
+            class="logo"
+            role="img"
+          />
 
           <ul class="nav-lista">
             <!-- Clase nav-lista: menú horizontal con espaciado -->
@@ -34,10 +43,13 @@
             <li><a href="reseñas.html">Reseñas</a></li>
             <li><a href="contacto.html">Contacto</a></li>
             <li>
-<a href="carrito.html" class="carrito-icono" aria-label="Ver carrito de compras">
-  🛒 <span id="contador-carrito" aria-live="polite">0</span>
-</a>
-
+              <a
+                href="carrito.html"
+                class="carrito-icono"
+                aria-label="Ver carrito de compras"
+              >
+                🛒 <span id="contador-carrito" aria-live="polite">0</span>
+              </a>
             </li>
           </ul>
         </nav>

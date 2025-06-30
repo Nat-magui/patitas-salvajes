@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+  <!-- Idioma español para accesibilidad y SEO -->
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Permite usar tildes, ñ, emojis -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Diseño responsive -->
+    <title>Patitas Felices 🐾</title>
+    <!-- Título en la pestaña del navegador -->
+
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+
+    <!-- Fuente de Google, aplicada a todo el sitio en CSS -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="contenido">
+      <!-- Encabezado con navegación principal -->
+      <header>
+        <nav class="navegacion" aria-label="Navegación principal">
+          <img
+            src="img/logo.png"
+            alt="Logotipo de Patitas Felices"
+            class="logo"
+            role="img"
+          />
+          <ul class="nav-lista">
+            <!-- Clase nav-lista: aplica flex, sin viñetas, espaciado horizontal -->
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="productos.html">Productos</a></li>
+            <li><a href="reseñas.html">Reseñas</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+            <li>
+              <a
+                href="carrito.html"
+                class="carrito-icono"
+                aria-label="Ver carrito de compras"
+              >
+                🛒 <span id="contador-carrito" aria-live="polite">0</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <!-- Contenido principal -->
+      <main>
+        <!-- Sección de bienvenida con imagen destacada -->
+        <section class="bienvenida-superpuesta">
+          <img
+            src="img/portada.jpg"
+            alt="Gatito feliz descansando"
+            class="imagen-portada"
+          />
+          <div class="texto-portada">
+            <h1>Bienvenidos a Patitas Felices</h1>
+            <p>
+              Una tienda pensada con amor para mimar a los michis que más querés
+              🐱💖
+            </p>
+          </div>
+        </section>
+
+        <!-- Sección de video embebido desde YouTube -->
+        <section class="video-section" aria-labelledby="titulo-video">
+          <h2 id="titulo-video">Conocé nuestro propósito</h2>
+          <div class="video-responsive">
+            <iframe
+              src="https://www.youtube.com/embed/pDWzWHksf60"
+              title="Video de presentación sobre los michis y la tienda"
+              frameborder="0"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- Pie de página estándar -->
+    <footer>
+      <p>&copy; 2025 Patitas Felices | Hecho con amor por Magalí 🐾</p>
+      <!-- Estilo aplicado desde styles.css: fondo rosa suave, centrado, fuente clara -->
+    </footer>
+
+    <!-- Script general para mostrar alert y manejar productos (solo se activa en páginas con contenedor) -->
+    <script src="js/script.js"></script>
+  </body>
+</html>

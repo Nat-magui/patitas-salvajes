@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+  <!-- Indica idioma del sitio para accesibilidad y SEO -->
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Permite usar tildes, ñ, emojis -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Sitio adaptable a móviles -->
+    <title>Reseñas - Patitas Felices</title>
+    <!-- Título en la pestaña del navegador -->
+
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+
+    <!-- Fuente Google usada en todo el sitio -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="contenido">
+      <!-- Encabezado con menú de navegación -->
+      <header>
+        <nav class="navegacion" aria-label="Navegación principal">
+
+          <img src="img/logo.png" alt="Logotipo de Patitas Felices" class="logo" role="img" />
+
+          <ul class="nav-lista">
+            <!-- Clase nav-lista: menú horizontal con espaciado -->
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="productos.html">Productos</a></li>
+            <li><a href="reseñas.html">Reseñas</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+            <li>
+<a href="carrito.html" class="carrito-icono" aria-label="Ver carrito de compras">
+  🛒 <span id="contador-carrito" aria-live="polite">0</span>
+</a>
+
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <!-- Contenido principal -->
+      <main>
+        <h1>💬 Lo que dicen nuestras familias gatunas</h1>
+        <!-- Título principal de la sección -->
+
+        <!-- Contenedor de reseñas con CSS Grid -->
+        <section class="grid-reseñas">
+          <!-- Clase grid-reseñas:
+           - Aplica display: grid
+           - Usa columnas automáticas con minmax
+           - Responsive por definición con auto-fit
+           - Tiene gap entre las tarjetas -->
+
+          <!-- Cada reseña es una tarjeta individual -->
+          <article class="reseña-card">
+            <p>
+              “Compré una camita donut y mi gata no quiere salir más. ¡Hermosa
+              calidad y atención!”
+            </p>
+            <h3>- Laura y Michi 🐱</h3>
+          </article>
+
+          <article class="reseña-card">
+            <p>
+              “Adoptamos a Simba y nos llenó de amor. Gracias por todo lo que
+              hacen por ellos.”
+            </p>
+            <h3>- Javier y familia 🧡</h3>
+          </article>
+
+          <article class="reseña-card">
+            <p>
+              “El rascador torre es su lugar favorito. Llega todo perfecto,
+              ¡súper recomendable!”
+            </p>
+            <h3>- Agus y Nube 🌈</h3>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <!-- Pie de página -->
+    <footer>
+      <p>&copy; 2025 Patitas Felices | Hecho con amor por Magalí 🐾</p>
+      <!-- Estilo uniforme en todas las páginas -->
+    </footer>
+  </body>
+</html>

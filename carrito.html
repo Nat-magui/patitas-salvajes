@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Permite usar tildes, ñ, emojis -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Hace que sea responsive en celulares -->
+    <title>Carrito - Patitas Felices</title>
+
+    <!-- Carga los estilos generales del sitio -->
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+
+    <!-- Fuente importada desde Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="contenido">
+      <!-- Encabezado con menú de navegación -->
+      <header>
+        <nav class="navegacion" aria-label="Navegación principal">
+
+          <!-- Clase aplicada en styles.css para estructura del nav -->
+          <img src="img/logo.png" alt="Logotipo de Patitas Felices" class="logo" role="img" />
+          <ul class="nav-lista">
+            <!-- Lista con estilo horizontal, centrado, sin puntos -->
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="productos.html">Productos</a></li>
+            <li><a href="reseñas.html">Reseñas</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+            <li>
+<a href="carrito.html" class="carrito-icono" aria-label="Ver carrito de compras">
+  🛒 <span id="contador-carrito" aria-live="polite">0</span>
+</a>
+
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <!-- Contenido principal de la página del carrito -->
+      <main>
+        <h1>🛒 Tu carrito</h1>
+        <!-- Título visible en la parte superior -->
+
+        <!-- Sección donde se mostrarán dinámicamente los productos agregados -->
+        <section id="carrito-container" class="carrito-container">
+          <!-- Este contenedor es manipulado por carrito.js con innerHTML -->
+          <!-- La clase 'carrito-container' aplica flex-column, centrado, espacio entre tarjetas -->
+        </section>
+
+        <!-- Elemento donde se mostrará el total de la compra -->
+        <p id="total" class="total-carrito"></p>
+        <!-- La clase 'total-carrito' tiene texto grande y espaciado -->
+
+        <!-- Botón para vaciar todo el carrito -->
+        <button id="vaciar-carrito" class="boton-vaciar">Vaciar carrito</button>
+        <!-- La clase 'boton-vaciar' le da color rosa, borde redondeado y efecto hover -->
+        <!-- El id es usado en carrito.js para activar su funcionalidad -->
+      </main>
+    </div>
+
+    <!-- Pie de página -->
+<footer role="contentinfo">
+  <p>&copy; 2025 Patitas Felices | Hecho con amor por Magalí 🐾</p>
+</footer>
+
+
+    <!-- Carga del script que gestiona el carrito -->
+    <script src="js/carrito.js"></script>
+    <!-- Este script es responsable de:
+       - Leer y mostrar el carrito desde localStorage
+       - Calcular el total
+       - Permitir eliminar productos individualmente
+       - Vaciar todo el carrito con un botón -->
+  </body>
+</html>

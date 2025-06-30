@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+  <!-- Documento HTML en español -->
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Soporta caracteres especiales como ñ, tildes, emojis -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Sitio responsive en celulares -->
+    <title>Contacto - Patitas Felices</title>
+    <!-- Título de la pestaña del navegador -->
+
+    <!-- Carga de estilos personalizados -->
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+
+    <!-- Fuente importada desde Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="contenido">
+      <!-- Menú de navegación -->
+      <header>
+        <nav class="navegacion" aria-label="Navegación principal">
+
+          <img src="img/logo.png" alt="Logotipo de Patitas Felices" class="logo" role="img" />
+
+          <ul class="nav-lista">
+            <!-- Enlaces internos para moverse entre páginas -->
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="productos.html">Productos</a></li>
+            <li><a href="reseñas.html">Reseñas</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+            <li>
+<a href="carrito.html" class="carrito-icono" aria-label="Ver carrito de compras">
+  🛒 <span id="contador-carrito" aria-live="polite">0</span>
+</a>
+
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <!-- Contenido principal -->
+      <main>
+        <!-- Sección centrada con fondo rosa -->
+        <section class="formulario-contacto">
+          <h1>💌 Escribinos</h1>
+          <p>
+            Si querés hacer una consulta, adoptar o colaborar con nosotras,
+            ¡dejá tu mensaje!
+          </p>
+
+          <!-- Formulario conectado con Formspree -->
+          <form action="https://formspree.io/f/mqaqrpzg" method="POST">
+            <!-- Campo de texto obligatorio -->
+            <label for="nombre">Nombre</label>
+            <input
+              type="text"
+              name="nombre"
+              id="nombre"
+              placeholder="Tu nombre"
+              required
+            />
+
+            <!-- Campo de correo electrónico obligatorio -->
+            <label for="email">Correo electrónico</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Tu correo"
+              required
+            />
+
+            <!-- Área de texto para el mensaje -->
+            <label for="mensaje">Mensaje</label>
+            <textarea
+              name="mensaje"
+              id="mensaje"
+              placeholder="Escribí tu mensaje..."
+              required
+            ></textarea>
+
+            <!-- Redirección automática a una página de agradecimiento luego del envío -->
+            <input type="hidden" name="_redirect" value="gracias.html" />
+
+            <!-- Botón para enviar el formulario -->
+            <button type="submit">Enviar mensaje</button>
+          </form>
+        </section>
+      </main>
+    </div>
+
+    <!-- Pie de página común a todas las páginas -->
+<footer role="contentinfo">
+  <p>&copy; 2025 Patitas Felices | Hecho con amor por Magalí 🐾</p>
+</footer>
+
+  </body>
+</html>

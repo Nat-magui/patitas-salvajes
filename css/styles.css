@@ -291,6 +291,19 @@ footer {
   transform: scale(1.03);
 }
 
+.producto-card,
+.reseña-card,
+.michi-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.producto-card:hover,
+.reseña-card:hover,
+.michi-card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  transform: scale(1.03);
+}
+
 /* Imagen del producto */
 .producto-img {
   max-width: 100%;
@@ -373,11 +386,25 @@ footer {
   background-color: #1d281d;
 }
 
+.agregar-carrito,
+.boton-vaciar,
+.eliminar-producto,
+button,
+.boton-volver,
+.boton-cta {
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
 .carrito-icono {
   position: relative; /* Para posicionar el contador encima */
   font-size: 1.2rem; /* Tamaño del carrito */
   text-decoration: none;
   color: #333;
+  transition: transform 0.2s ease;
+}
+
+.carrito-icono:hover {
+  transform: scale(1.1);
 }
 
 .carrito-icono span {

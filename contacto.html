@@ -1,19 +1,26 @@
 <!DOCTYPE html>
+<!-- Esto le dice al navegador que el archivo es HTML5 -->
+
 <html lang="es">
-  <!-- Documento HTML en español -->
+  <!-- Le indicamos al navegador que el contenido esta en espanol -->
+
   <head>
     <meta charset="UTF-8" />
-    <!-- Soporta caracteres especiales como ñ, tildes, emojis -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Sitio responsive en celulares -->
-    <title>Contacto - Patitas Felices</title>
-    <!-- Título de la pestaña del navegador -->
+    <!-- Esto permite usar letras con ñ, emojis y simbolos especiales -->
 
-    <!-- Carga de estilos personalizados -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Esto hace que el sitio se vea bien en celulares, tablets y compus -->
+
+    <title>Contacto - Patitas Felices</title>
+    <!-- Lo que aparece en la pestaña del navegador -->
+
+    <!-- Vinculamos el archivo de estilos principal -->
     <link rel="stylesheet" href="css/styles.css" />
+
+    <!-- Iconito que aparece en la pestaña (favicon) -->
     <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
 
-    <!-- Fuente importada desde Google Fonts -->
+    <!-- Tipografia de Google: se usa en el sitio para que se vea mas lindo -->
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
       rel="stylesheet"
@@ -21,15 +28,13 @@
   </head>
 
   <body>
+    <!-- Contenedor principal de toda la pagina -->
     <div class="contenido">
-      <!-- Menú de navegación -->
-      <header>
-        <nav class="navegacion" aria-label="Navegación principal">
-          <!-- Botón hamburguesa para pantallas chicas -->
-          <button class="menu-toggle" aria-label="Abrir menú de navegación">
-            ☰
-          </button>
 
+      <!-- CABECERA con el menu de navegacion -->
+      <header>
+        <nav class="navegacion" aria-label="Navegacion principal">
+          <!-- Logo de la tienda -->
           <img
             src="img/logo.png"
             alt="Logotipo de Patitas Felices"
@@ -37,13 +42,25 @@
             role="img"
           />
 
+          <!-- Boton hamburguesa (☰) que aparece en celular para abrir el menu -->
+          <button
+            class="menu-toggle"
+            aria-label="Abrir menu de navegacion"
+            aria-expanded="false"
+          >
+            ☰
+          </button>
+
+          <!-- Lista de links del menu -->
           <ul class="nav-lista">
-            <!-- Enlaces internos para moverse entre páginas -->
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="productos.html">Productos</a></li>
-            <li><a href="reseñas.html">Reseñas</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
+            <!-- Cada item nos lleva a una seccion distinta -->
+            <li><a href="index.html" class="activo">Inicio</a></li>
+            <li><a href="productos.html" class="activo">Productos - Peluditos</a></li>
+            <li><a href="api-productos.html" class="activo">Productos - Karens</a></li>
+            <li><a href="reseñas.html" class="activo">Reseñas</a></li>
+            <li><a href="contacto.html" class="activo">Contacto</a></li>
             <li>
+              <!-- Icono del carrito con contador que se actualiza segun lo que agreguemos -->
               <a
                 href="carrito.html"
                 class="carrito-icono"
@@ -56,19 +73,21 @@
         </nav>
       </header>
 
-      <!-- Contenido principal -->
+      <!-- CONTENIDO PRINCIPAL de la pagina -->
       <main>
-        <!-- Sección centrada con fondo rosa -->
+
+        <!-- Seccion con formulario de contacto -->
         <section class="formulario-contacto">
           <h1>💌 Escribinos</h1>
           <p>
-            Si querés hacer una consulta, adoptar o colaborar con nosotras,
-            ¡dejá tu mensaje!
+            Si queres hacer una consulta, adoptar o colaborar con nosotras,
+            deja tu mensaje!
           </p>
 
-          <!-- Formulario conectado con Formspree -->
+          <!-- Formulario que se conecta con Formspree para recibir mensajes -->
           <form action="https://formspree.io/f/mqaqrpzg" method="POST">
-            <!-- Campo de texto obligatorio -->
+
+            <!-- Campo para escribir el nombre -->
             <label for="nombre">Nombre</label>
             <input
               type="text"
@@ -78,8 +97,8 @@
               required
             />
 
-            <!-- Campo de correo electrónico obligatorio -->
-            <label for="email">Correo electrónico</label>
+            <!-- Campo para escribir el correo -->
+            <label for="email">Correo electronico</label>
             <input
               type="email"
               name="email"
@@ -88,30 +107,31 @@
               required
             />
 
-            <!-- Área de texto para el mensaje -->
+            <!-- Campo para escribir el mensaje -->
             <label for="mensaje">Mensaje</label>
             <textarea
               name="mensaje"
               id="mensaje"
-              placeholder="Escribí tu mensaje..."
+              placeholder="Escribi tu mensaje..."
               required
             ></textarea>
 
-            <!-- Redirección automática a una página de agradecimiento luego del envío -->
+            <!-- Redireccion a pagina de gracias despues del envio aunque el formspree no me dseja, aun no encuentro la manera en que si me deje -->
             <input type="hidden" name="_redirect" value="gracias.html" />
 
-            <!-- Botón para enviar el formulario -->
+            <!-- Boton para mandar el formulario -->
             <button type="submit">Enviar mensaje</button>
           </form>
         </section>
       </main>
     </div>
 
-    <!-- Pie de página común a todas las páginas -->
+    <!-- PIE DE PAGINA (footer) -->
     <footer role="contentinfo">
-      <p>&copy; 2025 Patitas Felices | Hecho con amor por Magalí 🐾</p>
+      <p>&copy; 2025 Patitas Felices | Hecho con amor por Magali 🐾</p>
     </footer>
-    <!-- Script general-->
+
+    <!-- Script general -->
     <script src="js/script.js"></script>
   </body>
 </html>

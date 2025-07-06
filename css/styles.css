@@ -1,84 +1,143 @@
 /* ===================================== */
-/* MEDIA QUERIES (Responsivo - Móviles) */
+/* Este archivo contiene todos los estilos visuales del sitio */
+/* Aplica colores, posiciones, tamaños y comportamiento responsive */
 /* ===================================== */
+
+/* ------------------------------ */
+/* Variables globales de colores */
+/* ------------------------------ */
+/* Aca definimos variables de color que usamos en todo el sitio. 
+   Buenisimo para mantener todo prolijo y facil de cambiar.
+   Si queremos cambiar el look general, lo hacemos desde aca sin romper todo. */
+
+:root {
+  --verde-salvajes: #2f3b2f;         /* Verde oscuro usado como color principal */
+  --verde-hover: #1d281d;            /* Mismo verde pero mas oscuro, para efectos hover */
+  --verde-claro-header: #c8d8b9;     /* Verde clarito para el fondo del header */
+
+  --rosa-patitas: #fcdde5;           /* Rosa claro para fondos suaves */
+  --rosa-boton: #ffa8b6;             /* Rosa usado en botones */
+  --rosa-hover: #ff8a9f;             /* Hover de los botones rosa */
+
+  --acento: #ff7f9f;                 /* Color de acento que resalta cosas (como CTA o botones) */
+  --acento-hover: #ff5b86;           /* Version del acento cuando pasas el mouse */
+
+  --gris-claro: #f5f5f5;             /* Gris re claro, ideal como fondo general */
+  --gris-texto: #333;                /* Gris oscuro para texto comun */
+  --gris-oscuro: #444;               /* Gris un poco mas fuerte, para titulos por ejemplo */
+  --gris-texto-suave: #555;          /* Gris intermedio, para texto menos importante */
+
+  --fondo-tarjeta: #fff;             /* Fondo blanco clasico para tarjetas */
+  --fondo-tarjeta-clara: #f8f8f8;    /* Blanco con un toque de gris, para variedad */
+  --borde-claro: #ccc;               /* Gris claro para bordes sutiles */
+  --texto-claro: #f9f9f9;            /* Blanco casi puro, ideal sobre fondos oscuros */
+
+  --blanco: #fff;                    /* Blanco puro */
+  --negro: #000;                     /* Negro puro */
+}
+
+/* ===================================== */
+/* MEDIA QUERIES (Responsivo - Moviles) */
+/* ===================================== */
+/* Estilos que se aplican SOLO si la pantalla mide entre 769px y 1024px.
+   O sea, para tablets y pantallas medianas. Ayuda a que el diseño no se rompa segun el dispositivo. */
+
 @media (max-width: 1024px) and (min-width: 769px) {
+
+  /* La galeria de michis y las reseñas van a tener 2 columnas en lugar de muchas o una sola */
   .galeria-michis,
   .reseñas-grid {
-    grid-template-columns: repeat(2, 1fr);
-    justify-items: center;
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas iguales, se adaptan al tamaño */
+    justify-items: center; /* Centra cada tarjeta dentro de su columna */
   }
+
+  /* Las tarjetas de productos, michis y reseñas se achican para que entren bien */
   .producto-card,
   .michi-card,
   .reseña-card {
-    width: 90%;
-    max-width: 400px;
+    width: 90%;          /* Ocupan casi todo el ancho del contenedor */
+    max-width: 400px;    /* Pero no se pasan de este ancho maximo */
   }
+
+  /* Ajuste del tamaño del titulo y parrafo de portada para que no quede gigante */
   .texto-portada h1 {
-    font-size: 2rem;
+    font-size: 2rem;     /* Un poco mas chico que en escritoriko */
   }
+
   .texto-portada p {
-    font-size: 1.1rem;
+    font-size: 1.1rem;   /* Tambien ajustado para mejor lectura */
   }
 }
 
+/* Celular: hasta 768px */
+/* Estilos pensados para celulares comunes, que tienen pantallas de hasta 768px de ancho.
+   Sirve para que todo se vea prolijo, sin tener que hacer zoom ni que nada se desborde */
 @media (max-width: 768px) {
+  /* Boton hamburguesa que aparece solo en mobile para abrir el menu */
   .menu-toggle {
-    display: block !important;
+    display: block !important; /* Lo mostramos (en desktop esta oculto) */
     background-color: var(--verde-salvajes);
     border: none;
-    font-size: 2rem;
+    font-size: 2rem; /* Tamaño grande para que se vea bien */
     padding: 0.5rem 1rem;
     border-radius: 8px;
     cursor: pointer;
     color: white;
-    margin-left: 1rem;
-    z-index: 1001;
+    z-index: 1001; /* Lo dejamos bien arriba del resto del contenido */
     margin-right: 1rem;
-    margin-left: 0;
   }
 
+  /* Menu desplegable que aparece cuando haces click en el boton hamburguesa */
   .nav-lista {
-    display: none;
-    flex-direction: column;
-    background-color: #fcdde5;
-    position: absolute;
-    top: 100%;
+    display: none;                            /* Oculto por defecto */
+    flex-direction: column;                   /* Los links uno abajo del otro */
+    background-color: var(--rosa-patitas);   
+    position: absolute;                       /* Se posiciona sobre el contenido */
+    top: 100%;                                /* Justo debajo del header */
     right: 0;
     padding: 1rem;
     margin: 0;
-    border-radius: 0 0 0 12px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    border-radius: 0 0 0 12px;                /* Bordes redondeados abajo a la izquierda */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);/* Sombra para que flote */
     z-index: 1000;
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(-10px);
+    opacity: 0;                               /* Invisible hasta que se active */
+    pointer-events: none;                     /* No se puede clickear mientras esta cerrado */
+    transform: translateY(-10px);             /* Le da un efecto de desplazamiento hacia arriba */
     transition: opacity 0.3s ease, transform 0.3s ease;
   }
 
+  /* Cuando el menu esta activo (clase "activa"), se ve */
   .nav-lista.activa {
     display: flex;
     opacity: 1;
     pointer-events: auto;
-    transform: translateY(0);
+    transform: translateY(0); /* Vuelve a su posicion normal */
   }
 
+  /* Header flexible, acomoda los elementos en fila */
   .navegacion {
-    flex-wrap: wrap;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; /* Logo a la izquierda, menu a la derecha */
+    align-items: center;
+    flex-wrap: wrap; /* Permite que bajen de linea si no entran */
     position: relative;
-    flex-direction: row-reverse;
   }
 
+  /* Logo ajustado con margenes */
   .logo {
     margin-left: 1rem;
-    margin-right: 0;
+    margin-right: auto; /* Lo empuja hacia la izquierda */
   }
 
+  /* La galeria de michis y las reseñas se ponen en 1 sola columna */
   .galeria-michis,
   .reseñas-grid {
     grid-template-columns: 1fr !important;
     justify-items: center;
   }
 
+  /* Las tarjetas se hacen mas angostas y con margen abajo */
   .producto-card,
   .michi-card,
   .reseña-card {
@@ -86,23 +145,27 @@
     margin-bottom: 1rem;
   }
 
+  /* Imagen de portada adaptada: no muy alta y bien encuadrada */
   .portada img {
     height: auto;
     max-height: 300px;
-    object-fit: cover;
+    object-fit: cover; /* Mantiene la imagen recortada prolija */
   }
 
+  /* Video adaptado a ancho completo, manteniendo proporción 16:9 */
   .video-responsive iframe {
     width: 100% !important;
     height: auto !important;
     aspect-ratio: 16 / 9;
   }
 
+  /* Ajuste del bloque de texto sobre la imagen */
   .portada .portada-texto {
     padding: 1rem;
     font-size: 1rem;
   }
 
+  /* Titulo y parrafo mas chicos para que entren bien */
   .texto-portada h1 {
     font-size: 1.5rem;
   }
@@ -111,46 +174,62 @@
     font-size: 1rem;
   }
 
+  /* Boton de llamada a la accion, mas chico para mobile */
   .boton-cta {
     font-size: 0.9rem;
     padding: 10px 16px;
   }
 }
 
+
+/* Celular chico: hasta 480px */
+/* Estilos para los celulares mas chicos, viejitos o con pantallas reducidas.
+   Todo se achica un poco mas para que entre bien sin romper el diseño. */
+
 @media (max-width: 480px) {
+
+  /* Imagen de portada aun mas bajita para que no ocupe toda la pantalla */
   .bienvenida-superpuesta img {
     max-height: 240px;
   }
 
+  /* El bloque de texto que va arriba de la imagen se achica un poco */
   .texto-portada {
     padding: 1rem;
-    font-size: 0.9rem;
+    font-size: 0.9rem; /* Letra un poquito mas chica para que no se amontone */
   }
 
   .texto-portada h1 {
-    font-size: 1.3rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.3rem;        /* Titulo reducido */
+    margin-bottom: 0.5rem;    /* Espacio abajo del titulo */
   }
 
   .texto-portada p {
-    font-size: 0.95rem;
+    font-size: 0.95rem;       /* Texto tambien mas chico */
   }
 
+  /*El boton CTA se achica un toque mas para no ocupar toda la pantalla */
   .boton-cta {
     font-size: 0.85rem;
     padding: 8px 14px;
   }
 }
 
+/* Desktop: desde 769px */
+/*Estilos que se aplican a pantallas grandes: monitores, notebooks o tablets grandes.
+   Aca el diseño se acomoda para aprovechar el espacio horizontal. */
+
 @media (min-width: 769px) {
+  /*El menu ya no es hamburguesa, es horizontal y siempre visible */
   .nav-lista {
     display: flex !important;
-    position: static;
-    flex-direction: row;
-    opacity: 1 !important;
-    pointer-events: auto;
+    position: static;         /* No esta flotando como en mobile */
+    flex-direction: row;      /* Los enlaces van de izquierda a derecha */
+    opacity: 1 !important;    /* Siempre visible */
+    pointer-events: auto;     /* Se puede clickear normalmente */
   }
 
+  /* Ocultamos el boton de menu hamburguesa porque no se necesita en escritorio */
   .menu-toggle {
     display: none !important;
     margin-right: 1rem;
@@ -158,197 +237,269 @@
   }
 }
 
+/* ===================================== */
+/* Menu Hamburguesa (Mobile) */
+/* ===================================== */
+/* Oculta el boton del menu hamburguesa en pantallas grandes
+   (se va a mostrar solo con media queries en mobile) */
 .menu-toggle {
   display: none;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
-
-/* ===================================== */
-/* Menú Hamburguesa (Mobile) */
-/* ===================================== */
-
-/* Oculta el botón en pantallas grandes */
-.menu-toggle {
-  display: none;
+.menu-toggle:hover {
+  background-color: var(--verde-hover);
+  transform: scale(1.1);
 }
 
 /* Fuente principal aplicada a todo el sitio */
 html,
 body {
-  height: 100%; /* Hace que el body ocupe todo el alto de la pantalla, necesario para el layout con footer al fondo */
-  margin: 0; /* Elimina el margen por defecto del navegador */
-  padding: 0; /* Elimina el relleno por defecto del navegador */
-  display: flex; /* Convierte el body en un contenedor flex vertical */
-  flex-direction: column; /* Apila los elementos (header, main, footer) uno debajo del otro */
-  font-family: "Poppins", sans-serif; /* Fuente legible y moderna aplicada a todo el sitio */
-  background-color: #fefefe; /* Fondo blanco suave para todo el sitio */
-  color: #333; /* Color de texto gris oscuro para buena lectura */
+  height: 100%; /* Hace que el body ocupe todo el alto de la pantalla. Sirve para que el footer se quede abajo */
+  margin: 0;     /* Elimina margen por defecto del navegador */
+  padding: 0;    /* Elimina el relleno interno por defecto */
+
+  display: flex;             /* Convierte el body en un contenedor flexible */
+  flex-direction: column;   /* Apila los elementos (header, main, footer) de arriba a abajo */
+
+  font-family: "Poppins", sans-serif;
+
+  background-color: var(--gris-claro); 
+  color: var(--gris-texto);            
 }
+
+/* Contenedor de contenido principal (main), se expande para empujar el footer hacia abajo */
 .contenido {
-  flex: 1; /* Ocupa todo el alto restante para empujar el footer abajo */
+  flex: 1;
 }
 /* Afecta a TODAS las paginas */
 
-/* Estilo del header */
+/* ====================== */
+/* Header principal       */
+/* ====================== */
 header {
-  position: sticky; /* Se queda pegado arriba */
-  top: 0; /* Lo fija al borde superior */
-  z-index: 1000; /* Lo mantiene encima del contenido */
-  background-color: #c8d8b9; /* Fondo para que no sea transparente */
-  padding: 1rem;
+  position: sticky; /* Hace que el header quede fijo arriba cuando scrollemops */
+  top: 0;           /* Pegadito al borde superior */
+  z-index: 1000;    /* Se asegura de que quede por encima del contenido */
+
+  background-color: var(--verde-claro-header);
+  padding: 1rem;    /* Espaciado interno */
   text-align: center;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra para efecto flotante */
+
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra*/
 }
+/* Presente en todas las paginas que tengan <header> */
 
-/* Afecta a todas las paginas que tienen <header> (todas) */
-
-/* Menu de navegacion */
+/* ============================ */
+/* Menu de navegacion principal */
+/* ============================ */
 .nav-lista {
-  list-style: none; /* Quita los puntitos de lista */
+  list-style: none;      /* Quita los puntitos de las listas <ul> */
   padding: 0;
   margin: 0;
-  justify-content: center; /* Centra los items */
-  gap: 1rem; /* Separacion entre links */
+  justify-content: center; /* Centra los elementos dentro del nav (en flex) */
+  gap: 1rem;               /* Espacio entre los enlaces */
 }
-/* Usado en todos los headers (navegacion) */
+/* Se usa dentro del header de todas las paginas */
 
-/*ajuste para el manu de navegacion no quede apilado*/
+/*Contenedor de todo el nav (logo + links), evita que se apilen */
 .navegacion {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  align-items: center;         /* Centra verticalmente los elementos */
+  justify-content: space-between; /* Logo a la izquierda, links a la derecha */
+  position: relative;          /* Necesario para posicionar bien el menu mobile */
 }
 
-/* Enlaces del menu */
+/* Estilos generales de los enlaces del nav */
 .nav-lista a {
-  text-decoration: none; /* Quita subrayado */
-  color: #333;
+  text-decoration: none;      /* Saca el subrayado */
+  color: var(--gris-texto);
+  font-weight: bold;          /* Un poquito mas grueso para que se note */
+  transition: color 0.3s ease, transform 0.2s ease;
+    padding: 0.5rem 0.8rem;
+      position: relative;
+
+
+}
+
+.nav-lista a:hover {
+  color: var(--acento);
+  transform: scale(1.05);
+}
+
+.nav-lista a:focus {
+  outline: 2px dashed var(--acento);
+  outline-offset: 4px;
+}
+
+.nav-lista a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--acento);
+  transition: width 0.3s ease;
+}
+
+.nav-lista a:hover::after {
+  width: 100%;
+}
+
+.nav-lista a.activo {
+  color: var(--acento);
   font-weight: bold;
 }
 
-/*logo ubicado en la navegacion*/
+/* Logo dentro del nav */
 .logo {
-  height: 50px;
-  width: auto;
-  margin-right: 1rem;
+  height: 50px;        /* Altura fija */
+  width: auto;         /* Se ajusta proporcionalmente al ancho */
+  margin-right: 1rem;  /* Separacion del resto del nav */
 }
-
 /* Tambien visible en todas las paginas */
 
+/* =========================== */
 /* Contenido general del main */
+/* =========================== */
+/* El <main> es donde va el contenido principal de cada pagina */
 main {
-  padding: 2rem;
-  text-align: center;
+  padding: 2rem;         /* Espacio alrededor del contenido */
+  text-align: center;    /* Centra los textos por defecto */
 }
-/* Aplicado a todas las paginas */
+/* Aplica en TODAS las paginas */
 
+/* ====================================== */
+/* Bloque de bienvenida con imagen grande */
+/* ====================================== */
 .bienvenida-superpuesta {
-  position: relative;
+  position: relative;        /* Para poder posicionar texto encima de la imagen */
   width: 100%;
-  max-width: 95%;
-  margin: 2rem auto;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  max-width: 95%;            /* No ocupa el 100% del ancho para que respire */
+  margin: 2rem auto;         /* Centrado con margen arriba y abajo */
+  border-radius: 16px;       /* Bordes redondeados */
+  overflow: hidden;          /* Corta todo lo que se pase del borde */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Sombra para que parezca "flotante" */
 }
 
+/* Imagen que va de fondo en la bienvenida */
 .bienvenida-superpuesta img {
-  width: 100%;
-  max-height: 380px; /* 🎯 Limita la altura visible */
-  object-fit: cover; /* Mantiene el encuadre */
+  width: 100%;               /* Que se adapte al ancho */
+  max-height: 380px;         /* No se pase de esta altura */
+  object-fit: cover;         /* Recorta la imagen para que se vea bien, sin deformarla */
   display: block;
-  border-radius: 16px;
+  border-radius: 16px;       /* Bordes iguales al contenedor */
 }
 
+/* ===================================== */
+/* Texto que va superpuesto sobre imagen */
+/* ===================================== */
 .texto-portada {
-  position: absolute;
+  position: absolute;               /* Lo pone flotando sobre la imagen */
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: rgba(0, 0, 0, 0.55); /* Fondo semitransparente oscuro */
+  transform: translate(-50%, -50%); /* Lo centra exactamente en el medio */
+
+  background-color: rgba(0, 0, 0, 0.55); /* Fondo negro semitransparente para que se lea bien */
   color: white;
-  padding: 1.5rem 2rem;
+
+  padding: 1.5rem 2rem;     /* Espacio interno */
   border-radius: 16px;
   text-align: center;
-  max-width: 90%;
+  max-width: 90%;           /* Para que no se pase de ancho en pantallas chicas */
 }
 
 .texto-portada h1 {
-  font-size: 2.2rem;
+  font-size: 2.2rem;        /* Titulo grande */
   margin-bottom: 0.8rem;
 }
 
 .texto-portada p {
-  font-size: 1.2rem;
+  font-size: 1.2rem;        /* Subtitulo o texto secundario */
   margin: 0;
 }
 
-/* Imagen destacada en index.html */
+/* ===================================== */
+/* Imagen destacada que aparece en index */
+/* ===================================== */
 .imagen-portada {
-  max-width: 100%; /* Escala para adaptarse al ancho del contenedor */
-  height: auto; /* Mantiene proporcion */
-  border-radius: 12px; /* Bordes redondeados */
+  max-width: 100%;   /* Se adapta al ancho del contenedor */
+  height: auto;      /* Mantiene su proporcion original */
+  border-radius: 12px; /* Bordes suaves */
 }
 
-/* Seccion del iframe en index.html */
+/* =========================== */
+/* Video embebido desde YouTube */
+/* =========================== */
 .video-section {
-  margin-top: 3rem;
+  margin-top: 3rem; /* Espacio arriba del video */
 }
 
 .video-responsive {
-  position: relative;
-  padding-bottom: 56.25%;
-  height: 0;
+  position: relative;      /* Permite posicionar el iframe adentro */
+  padding-bottom: 56.25%;  /* Relacion 16:9 (tipica de videos) */
+  height: 0;               /* La altura se maneja con el padding */
   overflow: hidden;
   max-width: 100%;
 }
 
 .video-responsive iframe {
-  position: absolute;
+  position: absolute;      /* Se posiciona dentro del contenedor relativo */
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100%;             /* Ocupa todo el ancho */
+  height: 100%;            /* Ocupa toda la altura generada por el padding */
 }
 
-/* Footer general */
+/* ================= */
+/* Footer general    */
+/* ================= */
 footer {
-  background-color: #fcdde5; /* Rosa institucional de Patitas Felices*/
-  padding: 1rem;
-  text-align: center;
-  font-size: 0.9rem;
+  background-color: var(--rosa-patitas);
+  padding: 1rem;                         /* Espacio interno */
+  text-align: center;                    /* Todo el texto centrado */
+  font-size: 0.9rem;                     /* Un tamaño de letra tranqui */
 }
 /* Visible en todas las paginas */
 
-/* Galeria de productos en productos.html */
+/* ========================================= */
+/* Galeria de productos en productos.html    */
+/* ========================================= */
 .productos-container {
-  display: flex;
-  flex-wrap: wrap; /* Permite que las tarjetas bajen de linea */
-  gap: 1.5rem;
-  justify-content: center;
-  margin-top: 2rem;
+  display: flex;              /* Contenedor flexible */
+  flex-wrap: wrap;            /* Permite que las tarjetas salten de linea si no entran */
+  gap: 1.5rem;                /* Espacio entre tarjeta y tarjeta */
+  justify-content: center;    /* Las centra horizontalmente */
+  margin-top: 2rem;           /* Espacio arriba de la galeria */
 }
 
+/* =================== */
 /* Tarjeta de producto */
+/* =================== */
 .producto-card {
-  border: 2px dashed var(--verde-salvajes, #c8d8b9); /* Usa la variable institucional o este color */
+  border: 2px dashed var(--verde-salvajes, #c8d8b9);
   padding: 1rem;
-  width: 250px;
-  height: 400px; /* 💡 Agregado: altura fija para que todas las tarjetas midan lo mismo */
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave para levantar la tarjeta */
-  background-color: #fff;
+  width: 250px;              /* Ancho fijo para todas */
+  height: 400px;             /* Altura fija para que queden parejas */
+  border-radius: 10px;       /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff; 
   text-align: center;
+
   transition: transform 0.3s ease;
-  display: flex; /* 💡 Agregado: permite distribuir elementos en columna */
-  flex-direction: column;
-  justify-content: space-between; /* 💡 Agregado: empuja el botón hacia abajo */
+
+  display: flex;             /* Permite ordenar contenido dentro */
+  flex-direction: column;    /* De arriba a abajo */
+  justify-content: space-between; /* Hace que el boton se quede abajo */
 }
 
-/* Efecto al pasar el mouse */
+
+/* Efecto cuando pasas el mouse por encima */
 .producto-card:hover {
-  transform: scale(1.03);
+  transform: scale(1.03); /* Se agranda un poquito para destacar */
 }
 
+/* Transiciones suaves para tarjetas reutilizables */
 .producto-card,
 .reseña-card,
 .michi-card {
@@ -358,56 +509,68 @@ footer {
 .producto-card:hover,
 .reseña-card:hover,
 .michi-card:hover {
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Sombra*/
   transform: scale(1.03);
 }
 
-/* Imagen del producto */
+/* ======================= */
+/* Imagen dentro del card  */
+/* ======================= */
 .producto-img {
-  max-width: 100%;
-  max-height: 180px;
-  object-fit: contain;
+  max-width: 100%;           /* Que no se pase del ancho del card */
+  max-height: 180px;         /* Para que todas tengan la misma altura */
+  object-fit: contain;       /* Ajusta la imagen sin recortarla */
   display: block;
-  margin: 0 auto 10px auto;
+  margin: 0 auto 10px auto;  /* Centrada con espacio abajo */
   border-radius: 12px;
 }
 
-/* Titulo del producto */
+/* ======================= */
+/* Titulo del producto     */
+/* ======================= */
 .producto-card h2 {
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
 }
 
-/* Descripción y precio */
+/* ======================= */
+/* Descripcion y precio    */
+/* ======================= */
 .producto-card p {
   margin: 0.5rem 0;
   font-size: 0.95rem;
-  color: #555;
+  color: var(--gris-texto-suave); /* Gris mas suave para texto menos importante */
 }
 
-/* Contenedor del carrito en carrito.html */
+/* ====================================== */
+/* Contenedor general del carrito (HTML) */
+/* ====================================== */
 .carrito-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  margin-top: 2rem;
+  display: flex;              /* Contenedor flexible */
+  flex-direction: column;     /* Elementos uno abajo del otro */
+  align-items: center;        /* Centrado horizontal */
+  gap: 1rem;                  /* Espacio entre productos */
+  margin-top: 2rem;           /* Separacion con el contenido de arriba */
 }
 
-/* Estilo de cada producto agregado */
+/* ================================ */
+/* Tarjeta de cada producto en el carrito */
+/* ================================ */
 .producto-carrito {
-  background-color: #fff;
-  border: 1px solid #ccc;
-  padding: 1rem;
-  width: 300px;
-  border-radius: 10px;
-  text-align: center;
+  background-color: #fff;           
+  border: 1px solid #ccc;  
+  padding: 1rem;                    /* Espacio interno */
+  width: 300px;                     /* Ancho fijo */
+  border-radius: 10px;              /* Bordes redondeados */
+  text-align: center;               /* Todo centrado */
 }
 
-/* Botones del carrito (eliminar o vaciar) */
+/* =========================================== */
+/* Botones del carrito: eliminar producto o vaciar */
+/* =========================================== */
 .boton-vaciar,
 .eliminar-producto {
-  background-color: #ff7f9f;
+  background-color: var(--acento);
   border: none;
   color: white;
   padding: 0.5rem 1rem;
@@ -419,19 +582,23 @@ footer {
 
 .boton-vaciar:hover,
 .eliminar-producto:hover {
-  background-color: #ff5b86;
+  background-color: var(--acento-hover); /* Se oscurece un poco al pasar el mouse */
 }
 
-/* Texto que muestra el total del carrito */
+/* =========================== */
+/* Total del carrito al final */
+/* =========================== */
 .total-carrito {
   margin-top: 1rem;
   font-size: 1.2rem;
   font-weight: bold;
 }
 
-/* Boton de agregar al carrito */
+/* =========================== */
+/* Boton para agregar producto */
+/* =========================== */
 .agregar-carrito {
-  background-color: #2f3b2f; /* Verde oscuro */
+  background-color: var(--verde-salvajes);
   color: white;
   border: none;
   padding: 0.5rem 1rem;
@@ -441,9 +608,13 @@ footer {
 }
 
 .agregar-carrito:hover {
-  background-color: #1d281d;
+  background-color: var(--verde-hover); /* Verde mas oscuro al pasar el mouse */
 }
 
+
+/* ======================= */
+/* Transiciones suaves en botones */
+/* ======================= */
 .agregar-carrito,
 .boton-vaciar,
 .eliminar-producto,
@@ -453,64 +624,71 @@ button,
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
+/* ======================= */
+/* Icono del carrito arriba */
+/* ======================= */
 .carrito-icono {
-  position: relative; /* Para posicionar el contador encima */
-  font-size: 1.2rem; /* Tamaño del carrito */
+  position: relative;              /* Para ubicar el numerito encima */
+  font-size: 1.2rem;
   text-decoration: none;
-  color: #333;
+  color: var(--gris-texto);
   transition: transform 0.2s ease;
 }
 
 .carrito-icono:hover {
-  transform: scale(1.1);
+  transform: scale(1.1);           /* Se agranda levemente al pasar el mouse */
 }
 
 .carrito-icono span {
   position: absolute;
-  top: -8px; /* Sube el contador arriba del carrito */
-  right: -12px; /* Lo posiciona hacia la derecha */
-  background-color: #ff7f9f; /* Color rosa para resaltar */
+  top: -8px;
+  right: -12px;
+  background-color: var(--acento); /* Bolita rosa que muestra la cantidad */
   color: white;
-  border-radius: 50%; /* Lo convierte en un círculo */
+  border-radius: 50%;
   padding: 2px 6px;
   font-size: 0.75rem;
 }
 
-/* Seccion del formulario en contacto.html */
+/* ============================= */
+/* Formulario de contacto (HTML) */
+/* ============================= */
 .formulario-contacto {
   max-width: 500px;
   margin: 2rem auto;
   padding: 1rem;
-  background-color: #fcdde5;
+  background-color: var(--rosa-patitas);
   border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra leve */
 }
 
-/* Titulo del formulario */
 .formulario-contacto h1 {
   text-align: center;
 }
 
-/* Estructura de los campos del formulario */
+/* ======================= */
+/* Campos del formulario  */
+/* ======================= */
 form {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1rem; /* Espacio entre campos */
 }
 
-/* Campos de entrada */
 input,
 textarea,
 button {
   padding: 0.8rem;
   font-size: 1rem;
   border-radius: 8px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--borde-claro);
 }
 
-/* Boton de enviar */
+/* ======================= */
+/* Boton para enviar el form */
+/* ======================= */
 button {
-  background-color: #ffa8b6;
+  background-color: var(--rosa-boton); /* Boton rosita pastel */
   color: white;
   font-weight: bold;
   border: none;
@@ -518,14 +696,16 @@ button {
 }
 
 button:hover {
-  background-color: #ff8a9f;
+  background-color: var(--rosa-hover); /* Cambia al pasar el mouse */
 }
 
+/* ================================= */
 /* Pagina de gracias (gracias.html) */
+/* ================================= */
 .pagina-gracias {
   text-align: center;
   padding: 3rem;
-  background-color: #fcdde5;
+  background-color: var(--rosa-patitas);
   min-height: 80vh;
   display: flex;
   flex-direction: column;
@@ -533,12 +713,14 @@ button:hover {
   align-items: center;
 }
 
-/* Boton "volver" en la pagina de gracias */
+/* ======================= */
+/* Boton de volver (gracias.html) */
+/* ======================= */
 .boton-volver {
   display: inline-block;
   margin-top: 1.5rem;
   padding: 0.7rem 1.2rem;
-  background-color: #ffa8b6;
+  background-color: var(--rosa-boton);
   color: white;
   border-radius: 8px;
   text-decoration: none;
@@ -546,37 +728,80 @@ button:hover {
 }
 
 .boton-volver:hover {
-  background-color: #ff8a9f;
+  background-color: var(--rosa-hover);
 }
 
-/* Reseñas en reseñas.html */
+/* ============================== */
+/*   Reseñas en reseñas.html      */
+/* ============================== */
 .grid-reseñas {
-  display: grid;
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(260px, 1fr)
-  ); /* Columnas que se adaptan al tamaño de pantalla */
-  gap: 1.5rem;
-  padding: 2rem;
-  max-width: 1000px;
-  margin: auto;
+  display: grid;  /* Usa grid para organizar las tarjetas */
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  /* Crea columnas flexibles que se adaptan al tamaño de la pantalla.
+     Cada columna ocupa al menos 260px, y si sobra espacio, se ajustan solas. */
+
+  gap: 1.5rem;        /* Espacio entre las tarjetas */
+  padding: 2rem;      /* Espacio interno del contenedor */
+  max-width: 1000px;  /* No se pasa de este ancho para mantener la lectura comoda */
+  margin: auto;       /* Centrado en la pagina */
 }
 
+/* Tarjeta individual de reseña */
 .reseña-card {
-  background-color: #fff;
-  border: 2px dashed var(--verde-salvajes, #c8d8b9);
+  background-color: var(--fondo-tarjeta); 
+  border: 2px dashed var(--verde-salvajes); 
   padding: 1.5rem;
   border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08); /* Sombra leve para levantar la tarjeta */
   font-size: 1rem;
   text-align: center;
 }
 
 .reseña-card p {
-  font-style: italic;
+  font-style: italic;       /* Queda lindo para testimonios */
   margin-bottom: 1rem;
 }
 
 .reseña-card h3 {
-  color: #444;
+  color: var(--gris-oscuro); /* Nombre o autor resaltado */
+}
+
+/* ============================== */
+/* Mensaje TOAST en index.html */
+/* ============================== */
+.toast {
+  position: fixed;               /* Siempre visible en la misma posicion de la pantalla */
+  bottom: 20px;                  /* Ubicado abajo */
+  right: 20px;                   /* A la derecha */
+  background-color: var(--verde-salvajes, #2f3b2f); 
+  color: #fff;                 
+  padding: 12px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Sombra bien marcada para que destaque */
+  opacity: 0;                    /* Por defecto esta oculto */
+  transform: translateY(20px);   /* Lo desplaza un poco hacia abajo */
+  transition: opacity 0.5s ease, transform 0.5s ease; /* Transiciones suaves */
+  z-index: 2000;                 /* Bien arriba de todo */
+  pointer-events: auto;          /* Permite interactuar (por ejemplo cerrar el toast) */
+  font-size: 1rem;
+  display: flex;                 /* Para alinear contenido y boton de cerrar */
+  align-items: center;
+  gap: 12px;                     /* Espacio entre texto e icono */
+}
+
+/* Cuando se activa el toast */
+.toast.mostrar {
+  opacity: 1;
+  transform: translateY(0); /* Vuelve a su lugar visible */
+}
+
+/* Boton para cerrar el toast */
+.cerrar-toast {
+  background: none;
+  border: none;
+  color: #fff;             /* Blanco para que se vea sobre fondo oscuro */
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0;
+  margin-left: auto;       /* Empuja el boton hacia la derecha */
 }

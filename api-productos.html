@@ -11,20 +11,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Esto hace que el sitio se vea bien en celulares, tablets y compus -->
 
-    <title>Carrito - Patitas Felices</title>
+    <title>Productos API | Patitas Felices</title>
     <!-- Lo que aparece en la pestaña del navegador -->
 
     <!-- Vinculamos el archivo de estilos principal -->
     <link rel="stylesheet" href="css/styles.css" />
 
     <!-- Iconito que aparece en la pestaña (favicon) -->
-    <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
-
-    <!-- Tipografia de Google: se usa en el sitio para que se vea mas lindo -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="icon" href="img/favicon.ico" />
   </head>
 
   <body>
@@ -33,23 +27,15 @@
 
       <!-- CABECERA con el menu de navegacion -->
       <header>
-        <nav class="navegacion" aria-label="Navegacion principal">
-          <!-- Logo de la tienda -->
-          <img
-            src="img/logo.png"
-            alt="Logotipo de Patitas Felices"
-            class="logo"
-            role="img"
-          />
+        <nav class="navegacion">
 
           <!-- Boton hamburguesa (☰) que aparece en celular para abrir el menu -->
-          <button
-            class="menu-toggle"
-            aria-label="Abrir menu de navegacion"
-            aria-expanded="false"
-          >
+          <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">
             ☰
           </button>
+
+          <!-- Logo del sitio -->
+          <img src="img/logo.png" alt="Logo" class="logo" />
 
           <!-- Lista de links del menu -->
           <ul class="nav-lista">
@@ -73,41 +59,27 @@
         </nav>
       </header>
 
-      <!-- CONTENIDO PRINCIPAL de la pagina -->
+      <!-- CONTENIDO PRINCIPAL -->
       <main>
 
         <!-- Titulo principal -->
-        <h1>🛒 Tu carrito</h1>
+        <h1>Productos desde DummyJSON</h1>
 
-        <!-- Contenedor donde se van a renderizar los productos agregados -->
-        <section id="carrito-container" class="carrito-container">
-          <!-- Este contenedor es rellenado con JS segun lo que se guardo en localStorage -->
-        </section>
+        <!-- Contenedor donde se van a mostrar los productos traidos desde la API -->
+        <div id="api-productos-container" class="productos-container"></div>
 
-        <!-- Muestra el total de la compra -->
-        <p id="total" class="total-carrito"></p>
-
-        <!-- Boton para vaciar el carrito completo -->
-        <button id="vaciar-carrito" class="boton-vaciar">Vaciar carrito</button>
-        <!-- Este boton borra todo lo que hay en el carrito y actualiza la vista -->
       </main>
     </div>
 
     <!-- PIE DE PAGINA (footer) -->
-    <footer role="contentinfo">
+    <footer>
       <p>&copy; 2025 Patitas Felices | Hecho con amor por Magali 🐾</p>
     </footer>
 
-    <!-- Script general del sitio -->
-    <script src="js/script.js"></script>
+    <!-- Script que carga los productos desde la API DummyJSON -->
+    <script src="js/api-productos.js"></script>
 
-    <!-- Script especifico del carrito -->
-    <script src="js/carrito.js"></script>
-    <!-- Este archivo:
-      - Lee los productos guardados en localStorage
-      - Los muestra en pantalla
-      - Calcula el total de la compra
-      - Permite eliminar productos uno por uno
-      - Vaciar todo el carrito con un solo boton -->
+    <!-- Script general que mantiene el toggle del menu y contador del carrito -->
+    <script src="js/script.js"></script>
   </body>
 </html>

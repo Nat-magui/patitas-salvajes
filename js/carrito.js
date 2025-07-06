@@ -1,74 +1,75 @@
-// Mostrar productos guardados y permitir vaciar el carrito
-// Espera que todo el HTML este cargado antes de ejecutar el código
-document.addEventListener("DOMContentLoaded", () => {
+// =====================
+// Archivo carrito.js
+// Este archivo maneja:
+// - Mostrar los productos guardados en el carrito
+// - Calcular y mostrar el total
+// - Eliminar productos individualmente
+// - Vaciar todo el carrito
+// =====================
 
+// Con el DOMContentLoaded espera a que el HTML se haya cargado completamente antes de ejecutar el codigo
+// Esto evita errores si los elementos todavia no estan disponibles
+
+document.addEventListener("DOMContentLoaded", () => {
   // Captura el contenedor donde se mostraran los productos en carrito.html
   const carritoContainer = document.getElementById("carrito-container");
 
-  // Captura el elemento que mostrara el total en carrito.html
+  // Captura el elemento donde se mostrara el total a pagar
   const totalTexto = document.getElementById("total");
 
-  // Captura el boton que vacia todo el carrito
+  // Captura el boton que permite vaciar todo el carrito
   const botonVaciar = document.getElementById("vaciar-carrito");
 
-  // Trae el carrito guardado en localStorage y lo convierte en objeto de JS.
-  // Si no existe, se crea como array vacio.
+  // Traemos el carrito desde localStorage y lo convertimos a objeto
+  // Si no hay nada guardado, arrancamos con un array vacio
   let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-  // Esta función dibuja los productos en el HTML cada vez que se llama
+  // Funcion que dibuja todos los productos guardados en el carrito
   function mostrarCarrito() {
-    carritoContainer.innerHTML = "";  // Limpia todo antes de dibujar
-    let total = 0;                    // Variable para sumar el total
+    carritoContainer.innerHTML = ""; // Limpiamos el contenedor antes de agregar cosas
+    let total = 0; // Arrancamos el total desde cero
 
-    // Recorre todos los productos guardados en el carrito
+    // Recorremos todos los productos del carrito
     carrito.forEach((producto, index) => {
-      // Crea una tarjeta visual para cada producto
+      // Creamos un div para cada producto
       const div = document.createElement("div");
-      div.classList.add("producto-carrito");  // Clase de estilo para cada tarjeta
+      div.classList.add("producto-carrito");
 
-      // Inserta el contenido del producto: nombre, precio, botón eliminar
+      // Insertamos el nombre, el precio y un boton para eliminar el producto
       div.innerHTML = `
         <h3>${producto.name}</h3>
         <p>Precio: $${producto.amount}</p>
         <button data-index="${index}" class="eliminar-producto">Eliminar</button>
       `;
 
-      // Agrega la tarjeta al contenedor
+      // Agregamos la tarjeta del producto al contenedor
       carritoContainer.appendChild(div);
 
-      // Suma el precio de este producto al total
+      // Sumamos el precio de este producto al total
       total += producto.amount;
     });
 
-    // Muestra el total calculado en pantalla
+    // Mostramos el total final calculado
     totalTexto.textContent = `Total: $${total}`;
   }
 
-  // Escucha los clics dentro del contenedor de productos
+  // Evento que escucha si se clickeo un boton "Eliminar" dentro del carrito
   carritoContainer.addEventListener("click", (e) => {
-    // Si el clic fue en un boton con clase "eliminar-producto"
     if (e.target.classList.contains("eliminar-producto")) {
-      // Toma el indice del producto a eliminar (se guardo con data-index)
-      const index = parseInt(e.target.dataset.index);
-
-      // Lo quita del array usando splice
-      carrito.splice(index, 1);
-
-      // Actualiza el carrito en localStorage
-      localStorage.setItem("carrito", JSON.stringify(carrito));
-
-      // Vuelve a dibujar el carrito en pantalla
-      mostrarCarrito();
+      const index = parseInt(e.target.dataset.index); // Tomamos el indice del producto
+      carrito.splice(index, 1); // Lo eliminamos del array
+      localStorage.setItem("carrito", JSON.stringify(carrito)); // Guardamos el carrito actualizado
+      mostrarCarrito(); // Volvemos a renderizar la lista
     }
   });
 
-  // Cuando se hace clic en el botón "Vaciar carrito"
+  // Evento para vaciar todo el carrito al hacer click en el boton
   botonVaciar.addEventListener("click", () => {
-    carrito = [];                         // Vacia el array
-    localStorage.removeItem("carrito");  // Borra el dato guardado
-    mostrarCarrito();                    // Limpia la vista en pantalla
+    carrito = []; // Vaciamos el array
+    localStorage.removeItem("carrito"); // Borramos el item del storage
+    mostrarCarrito(); // Limpiamos la vista
   });
 
-  // Al cargar la pagina, muestra el contenido actual del carrito
+  // Cuando la pagina se carga, mostramos lo que haya guardado en el carrito
   mostrarCarrito();
 });

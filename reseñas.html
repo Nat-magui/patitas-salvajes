@@ -1,38 +1,40 @@
 <!DOCTYPE html>
+<!-- Esto le dice al navegador que el archivo es HTML5 -->
+
 <html lang="es">
-  <!-- Indica idioma del sitio para accesibilidad y SEO -->
+  <!-- Le indicamos al navegador que el contenido esta en espanol -->
+
   <head>
     <meta charset="UTF-8" />
-    <!-- Permite usar tildes, ñ, emojis -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Sitio adaptable a móviles -->
-    <title>Reseñas - Patitas Felices</title>
-    <!-- Título en la pestaña del navegador -->
+    <!-- Esto permite usar letras con ñ, emojis y simbolos especiales -->
 
-    <!-- Estilos personalizados -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Esto hace que el sitio se vea bien en celulares, tablets y compus -->
+
+    <title>Resenas - Patitas Felices</title>
+    <!-- Lo que aparece en la pestaña del navegador -->
+
+    <!-- Vinculamos el archivo de estilos principal -->
     <link rel="stylesheet" href="css/styles.css" />
+
+    <!-- Iconito que aparece en la pestaña (favicon) -->
     <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
 
-    <!-- Fuente Google usada en todo el sitio -->
+    <!-- Tipografia de Google: se usa en el sitio para que se vea mas lindo -->
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
       rel="stylesheet"
     />
   </head>
-  <body>
-    <div class="contenido">
-      <!-- Encabezado con menú de navegación -->
-      <header>
-        <nav class="navegacion" aria-label="Navegación principal">
-          <!-- Botón hamburguesa para pantallas chicas -->
-          <button
-            class="menu-toggle"
-            aria-label="Abrir menú de navegación"
-            aria-expanded="false"
-          >
-            ☰
-          </button>
 
+  <body>
+    <!-- Contenedor principal de toda la pagina -->
+    <div class="contenido">
+
+      <!-- CABECERA con el menu de navegacion -->
+      <header>
+        <nav class="navegacion" aria-label="Navegacion principal">
+          <!-- Logo de la tienda -->
           <img
             src="img/logo.png"
             alt="Logotipo de Patitas Felices"
@@ -40,13 +42,25 @@
             role="img"
           />
 
+          <!-- Boton hamburguesa (☰) que aparece en celular para abrir el menu -->
+          <button
+            class="menu-toggle"
+            aria-label="Abrir menu de navegacion"
+            aria-expanded="false"
+          >
+            ☰
+          </button>
+
+          <!-- Lista de links del menu -->
           <ul class="nav-lista">
-            <!-- Clase nav-lista: menú horizontal con espaciado -->
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="productos.html">Productos</a></li>
-            <li><a href="reseñas.html">Reseñas</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
+            <!-- Cada item nos lleva a una seccion distinta -->
+            <li><a href="index.html" class="activo">Inicio</a></li>
+            <li><a href="productos.html" class="activo">Productos - Peluditos</a></li>
+            <li><a href="api-productos.html" class="activo">Productos - Karens</a></li>
+            <li><a href="reseñas.html" class="activo">Reseñas</a></li>
+            <li><a href="contacto.html" class="activo">Contacto</a></li>
             <li>
+              <!-- Icono del carrito con contador que se actualiza segun lo que agreguemos -->
               <a
                 href="carrito.html"
                 class="carrito-icono"
@@ -59,31 +73,27 @@
         </nav>
       </header>
 
-      <!-- Contenido principal -->
+      <!-- CONTENIDO PRINCIPAL de la pagina -->
       <main>
+
+        <!-- Titulo principal de esta seccion -->
         <h1>💬 Lo que dicen nuestras familias gatunas</h1>
-        <!-- Título principal de la sección -->
 
-        <!-- Contenedor de reseñas con CSS Grid -->
+        <!-- Seccion de reseñas con tarjetas de opinion -->
         <section class="grid-reseñas">
-          <!-- Clase grid-reseñas:
-           - Aplica display: grid
-           - Usa columnas automáticas con minmax
-           - Responsive por definición con auto-fit
-           - Tiene gap entre las tarjetas -->
 
-          <!-- Cada reseña es una tarjeta individual -->
+          <!-- Cada opinion de cliente esta dentro de una tarjeta -->
           <article class="reseña-card">
             <p>
-              “Compré una camita donut y mi gata no quiere salir más. ¡Hermosa
-              calidad y atención!”
+              “Compre una camita donut y mi gata no quiere salir mas. Hermosa
+              calidad y atencion!”
             </p>
             <h3>- Laura y Michi 🐱</h3>
           </article>
 
           <article class="reseña-card">
             <p>
-              “Adoptamos a Simba y nos llenó de amor. Gracias por todo lo que
+              “Adoptamos a Simba y nos lleno de amor. Gracias por todo lo que
               hacen por ellos.”
             </p>
             <h3>- Javier y familia 🧡</h3>
@@ -91,21 +101,22 @@
 
           <article class="reseña-card">
             <p>
-              “El rascador torre es su lugar favorito. Llega todo perfecto,
-              ¡súper recomendable!”
+              “El rascador torre es su lugar favorito. Llego todo perfecto,
+              super recomendable!”
             </p>
             <h3>- Agus y Nube 🌈</h3>
           </article>
+
         </section>
       </main>
     </div>
 
-    <!-- Pie de página -->
+    <!-- PIE DE PAGINA (footer) -->
     <footer>
-      <p>&copy; 2025 Patitas Felices | Hecho con amor por Magalí 🐾</p>
-      <!-- Estilo uniforme en todas las páginas -->
+      <p>&copy; 2025 Patitas Felices | Hecho con amor por Magali 🐾</p>
     </footer>
-        <!-- Script general-->
+
+    <!-- Script general que se usa en todas las paginas -->
     <script src="js/script.js"></script>
   </body>
 </html>

@@ -1,35 +1,40 @@
 <!DOCTYPE html>
+<!-- Esto le dice al navegador que el archivo es HTML5 -->
+
 <html lang="es">
-  <!-- Idioma del documento: español -->
+  <!-- Le indicamos al navegador que el contenido esta en espanol -->
+
   <head>
     <meta charset="UTF-8" />
-    <!-- Permite caracteres especiales como tildes y ñ -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Responsive para móviles -->
-    <title>Productos - Patitas Felices</title>
-    <!-- Título de la pestaña -->
+    <!-- Esto permite usar letras con ñ, emojis y simbolos especiales -->
 
-    <!-- Estilos personalizados del sitio -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Esto hace que el sitio se vea bien en celulares, tablets y compus -->
+
+    <title>Productos - Patitas Felices</title>
+    <!-- Lo que aparece en la pestaña del navegador -->
+
+    <!-- Vinculamos el archivo de estilos principal -->
     <link rel="stylesheet" href="css/styles.css" />
+
+    <!-- Iconito que aparece en la pestaña (favicon) -->
     <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
 
-    <!-- Fuente Poppins de Google, aplicada en styles.css -->
+    <!-- Tipografia de Google: se usa en el sitio para que se vea mas lindo -->
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
       rel="stylesheet"
     />
   </head>
-  <body>
-    <div class="contenido">
-      <!-- Encabezado con menú de navegación -->
-      <header>
-        <nav class="navegacion" aria-label="Navegación principal">
-          <!-- Botón hamburguesa para pantallas chicas -->
-          <button class="menu-toggle" aria-label="Abrir menú de navegación">
-            ☰
-          </button>
 
-          <!-- Estructura general del nav -->
+  <body>
+    <!-- Contenedor principal de toda la pagina -->
+    <div class="contenido">
+
+      <!-- CABECERA con el menu de navegacion -->
+      <header>
+        <nav class="navegacion" aria-label="Navegacion principal">
+          <!-- Logo de la tienda -->
           <img
             src="img/logo.png"
             alt="Logotipo de Patitas Felices"
@@ -37,13 +42,25 @@
             role="img"
           />
 
+          <!-- Boton hamburguesa (☰) que aparece en celular para abrir el menu -->
+          <button
+            class="menu-toggle"
+            aria-label="Abrir menu de navegacion"
+            aria-expanded="false"
+          >
+            ☰
+          </button>
+
+          <!-- Lista de links del menu -->
           <ul class="nav-lista">
-            <!-- Clase nav-lista: flex horizontal sin viñetas -->
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="productos.html">Productos</a></li>
-            <li><a href="reseñas.html">Reseñas</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
+            <!-- Cada item nos lleva a una seccion distinta -->
+            <li><a href="index.html" class="activo">Inicio</a></li>
+            <li><a href="productos.html" class="activo">Productos - Peluditos</a></li>
+            <li><a href="api-productos.html" class="activo">Productos - Karens</a></li>
+            <li><a href="reseñas.html" class="activo">Reseñas</a></li>
+            <li><a href="contacto.html" class="activo">Contacto</a></li>
             <li>
+              <!-- Icono del carrito con contador que se actualiza segun lo que agreguemos -->
               <a
                 href="carrito.html"
                 class="carrito-icono"
@@ -56,31 +73,31 @@
         </nav>
       </header>
 
-      <!-- Contenido principal -->
+      <!-- CONTENIDO PRINCIPAL de la pagina -->
       <main>
-        <h1>Nuestros Productos</h1>
-        <!-- Título principal de esta página -->
 
-        <!-- Contenedor donde se insertarán las tarjetas de productos con JS -->
+        <!-- Titulo principal -->
+        <h1>Nuestros Productos</h1>
+
+        <!-- Contenedor donde se insertan automaticamente los productos con ayuda de nuestro sctipt -->
         <section class="productos-container" id="productos-container">
-          <!-- Clase productos-container: usa Flexbox, centrado, margen y separación -->
-          <!-- Los productos vienen de productos.js y son renderizados por script.js -->
+          <!-- Aca se van a renderizar las tarjetas de productos con JS -->
+          <!-- Cada tarjeta incluye imagen, nombre, precio y boton para agregar al carrito -->
         </section>
       </main>
     </div>
 
-    <!-- Pie de página del sitio -->
+    <!-- PIE DE PAGINA (footer) -->
     <footer>
-      <p>&copy; 2025 Patitas Felices | Hecho con amor por Magalí 🐾</p>
-      <!-- Mismo footer que el resto del sitio. Estilo aplicado desde styles.css -->
+      <p>&copy; 2025 Patitas Felices | Hecho con amor por Magali 🐾</p>
     </footer>
 
-    <!-- Scripts necesarios para renderizar productos y agregar al carrito -->
+    <!-- Archivos JS que hacen que funcione el sitio :D -->
 
-    <!-- Contiene el array de productos con id, nombre, precio y descripción -->
+    <!-- Aca esta la lista de productos (array) -->
     <script src="js/productos.js"></script>
 
-    <!-- Contiene la lógica para mostrar productos en pantalla y gestionar el carrito -->
+    <!-- Aca esta el codigo que toma esos productos y los muestra en pantalla, ademas de manejar el carrito -->
     <script src="js/script.js"></script>
   </body>
 </html>

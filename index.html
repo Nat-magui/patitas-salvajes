@@ -1,51 +1,66 @@
 <!DOCTYPE html>
+<!-- Esto le dice al navegador que el archivo es HTML5 -->
+
 <html lang="es">
-  <!-- Idioma español para accesibilidad y SEO -->
+  <!-- Le indicamos al navegador que el contenido esta en español -->
+
   <head>
     <meta charset="UTF-8" />
-    <!-- Permite usar tildes, ñ, emojis -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Diseño responsive -->
-    <title>Patitas Felices 🐾</title>
-    <!-- Título en la pestaña del navegador -->
+    <!-- Esto permite usar letras con ñ, emojis y simbolos especiales -->
 
-    <!-- Estilos personalizados -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Esto hace que el sitio se vea bien en celulares, tablets y compus -->
+
+    <title>Patitas Felices 🐾</title>
+    <!-- Lo que aparece en la pestaña del navegador -->
+
+    <!-- Vinculamos el archivo de estilos principal -->
     <link rel="stylesheet" href="css/styles.css" />
+
+    <!-- Iconito que aparece en la pestaña (favicon) -->
     <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
 
-    <!-- Fuente de Google, aplicada a todo el sitio en CSS -->
+    <!-- Tipografia de Google: se usa en el sitio para que se vea mas lindo -->
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
       rel="stylesheet"
     />
   </head>
-  <body>
-    <div class="contenido">
-      <!-- Encabezado con navegación principal -->
-      <header>
-        <nav class="navegacion" aria-label="Navegación principal">
-          <!-- Botón hamburguesa para pantallas chicas -->
-          <button
-            class="menu-toggle"
-            aria-label="Abrir menú de navegación"
-            aria-expanded="false"
-          >
-            ☰
-          </button>
 
+  <body>
+    <!-- Contenedor principal de toda la pagina -->
+    <div class="contenido">
+      
+      <!-- CABECERA con el menu de navegacion -->
+      <header>
+        <nav class="navegacion" aria-label="Navegacion principal">
+          <!-- Logo de la tienda -->
           <img
             src="img/logo.png"
             alt="Logotipo de Patitas Felices"
             class="logo"
             role="img"
           />
+
+          <!-- Boton hamburguesa (☰) que aparece en celular para abrir el menu -->
+          <button
+            class="menu-toggle"
+            aria-label="Abrir menu de navegacion"
+            aria-expanded="false"
+          >
+            ☰
+          </button>
+
+          <!-- Lista de links del menu -->
           <ul class="nav-lista">
-            <!-- Clase nav-lista: aplica flex, sin viñetas, espaciado horizontal -->
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="productos.html">Productos</a></li>
-            <li><a href="reseñas.html">Reseñas</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
+            <!-- Cada item nos lleva a una seccion distinta -->
+            <li><a href="index.html" class="activo">Inicio</a></li>
+            <li><a href="productos.html" class="activo">Productos - Peluditos</a></li>
+            <li><a href="api-productos.html" class="activo">Productos - Karens</a></li>
+            <li><a href="reseñas.html" class="activo">Reseñas</a></li>
+            <li><a href="contacto.html" class="activo">Contacto</a></li>
             <li>
+              <!-- Icono del carrito con contador que se actualiza segun lo que agreguemos -->
               <a
                 href="carrito.html"
                 class="carrito-icono"
@@ -58,31 +73,33 @@
         </nav>
       </header>
 
-      <!-- Contenido principal -->
+      <!-- CONTENIDO PRINCIPAL de la pagina -->
       <main>
-        <!-- Sección de bienvenida con imagen destacada -->
+
+        <!-- Seccion de bienvenida con imagen de portada y texto encima -->
         <section class="bienvenida-superpuesta">
           <img
             src="img/portada.jpg"
             alt="Gatito feliz descansando"
             class="imagen-portada"
           />
+          <!-- Texto encima de la imagen -->
           <div class="texto-portada">
             <h1>Bienvenidos a Patitas Felices</h1>
             <p>
-              Una tienda pensada con amor para mimar a los michis que más querés
-              🐱💖
+              Una tienda pensada con amor para mimar a los michis que mas queres 🐱💖
             </p>
           </div>
         </section>
 
-        <!-- Sección de video embebido desde YouTube -->
+        <!-- Seccion con video de YouTube insertado -->
         <section class="video-section" aria-labelledby="titulo-video">
-          <h2 id="titulo-video">Conocé nuestro propósito</h2>
+          <h2 id="titulo-video">Conoce nuestro proposito</h2>
           <div class="video-responsive">
+            <!-- Video embebido que se adapta al ancho de la pantalla -->
             <iframe
               src="https://www.youtube.com/embed/pDWzWHksf60"
-              title="Video de presentación sobre los michis y la tienda"
+              title="Video de presentacion sobre los michis y la tienda"
               frameborder="0"
               allowfullscreen
             ></iframe>
@@ -91,13 +108,18 @@
       </main>
     </div>
 
-    <!-- Pie de página estándar -->
+    <!-- PIE DE PAGINA (footer) -->
     <footer>
-      <p>&copy; 2025 Patitas Felices | Hecho con amor por Magalí 🐾</p>
-      <!-- Estilo aplicado desde styles.css: fondo rosa suave, centrado, fuente clara -->
+      <p>&copy; 2025 Patitas Felices | Hecho con amor por Magali 🐾</p>
     </footer>
 
-    <!-- Script general para mostrar alert y manejar productos (solo se activa en páginas con contenedor) -->
+    <!-- TOAST de bienvenida: aparece solo unos segundos o hasta que el usuario lo cierre -->
+    <div id="toast-bienvenida" class="toast" role="status" aria-live="polite">
+      <span>🐾 ¡Gracias por visitar Patitas Felices!</span>
+      <button class="cerrar-toast" aria-label="Cerrar mensaje">×</button>
+    </div>
+
+    <!-- Script general -->
     <script src="js/script.js"></script>
   </body>
 </html>

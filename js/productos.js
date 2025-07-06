@@ -1,7 +1,11 @@
-// Array de productos
+// =====================
+// Archivo productos.js
+// Define una lista de productos que se usa para generar las tarjetas de la tienda
+// Este archivo es utilizado principalmente por productos.html
+// =====================
 
-// Este archivo define un array llamado "productos" con objetos que representan productos individuales.
-// Afecta a la pagina productos.html, donde el script usa estos datos para renderizar las tarjetas de productos.
+// Creamos un array (lista) de productos
+// Cada producto es un objeto con varias propiedades que lo describen
 
 const productos = [
   {

@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Esto hace que el sitio se vea bien en celulares, tablets y compus -->
 
-    <title>Productos API | Patitas Felices</title>
+    <title>Regalitos para Karens | Patitas Felices</title>
     <!-- Lo que aparece en la pestaña del navegador -->
 
     <!-- Vinculamos el archivo de estilos principal -->
@@ -24,13 +24,15 @@
   <body>
     <!-- Contenedor principal de toda la pagina -->
     <div class="contenido">
-
       <!-- CABECERA con el menu de navegacion -->
       <header>
         <nav class="navegacion">
-
           <!-- Boton hamburguesa (☰) que aparece en celular para abrir el menu -->
-          <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">
+          <button
+            class="menu-toggle"
+            aria-label="Abrir menu"
+            aria-expanded="false"
+          >
             ☰
           </button>
 
@@ -41,8 +43,12 @@
           <ul class="nav-lista">
             <!-- Cada item nos lleva a una seccion distinta -->
             <li><a href="index.html" class="activo">Inicio</a></li>
-            <li><a href="productos.html" class="activo">Productos - Peluditos</a></li>
-            <li><a href="api-productos.html" class="activo">Productos - Karens</a></li>
+            <li>
+              <a href="productos.html" class="activo">Productos - Peluditos</a>
+            </li>
+            <li>
+              <a href="api-productos.html" class="activo">Productos - Karens</a>
+            </li>
             <li><a href="reseñas.html" class="activo">Reseñas</a></li>
             <li><a href="contacto.html" class="activo">Contacto</a></li>
             <li>
@@ -61,13 +67,15 @@
 
       <!-- CONTENIDO PRINCIPAL -->
       <main>
-
         <!-- Titulo principal -->
-        <h1>Productos desde DummyJSON</h1>
+        <h1>🎁 Regalitos para Karens y Karencios</h1>
+        <p class="descripcion-categoria">
+          Tazas, mates, velas y más productos con onda felina para humanos que
+          aman a los gatitos. Porque vos también te merecés un mimo 💅🐱
+        </p>
 
         <!-- Contenedor donde se van a mostrar los productos traidos desde la API -->
         <div id="api-productos-container" class="productos-container"></div>
-
       </main>
     </div>
 

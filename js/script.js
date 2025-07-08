@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // =====================
-  // 🧮 Mostrar cantidad de productos en el carrito al cargar la pagina
+  // Mostrar cantidad de productos en el carrito al cargar la pagina
   // =====================
   const contadorCarrito = document.getElementById("contador-carrito");
   if (contadorCarrito) {
@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // =====================
-  // 🍔 Menu hamburguesa para mobile
+  // Menu hamburguesa para mobile
   // =====================
   const toggleBtn = document.querySelector(".menu-toggle");
   const navLista = document.querySelector(".nav-lista");

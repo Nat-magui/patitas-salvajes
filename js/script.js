@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <h2>${producto.name}</h2>
         <p>${producto.description}</p>
         <p><strong>Precio:</strong> $${producto.amount}</p>
-        <button class="agregar-carrito" data-id="${producto.id}" aria-label="Agregar ${producto.name} al carrito">Agregar al carrito</button>
+        <button class="agregar-carrito" data-id="${producto.id}" aria-label="Agregar ${producto.name} al carrito">Agregar para mimar 🧡</button>
       `;
 
       // Agregamos la tarjeta al contenedor

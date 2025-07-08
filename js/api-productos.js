@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
             data-title="${producto.title}" 
             data-price="${producto.price}" 
             data-img="${producto.thumbnail}">
-            Sumar al carrito 🛒
+            ¡Lo quiero! 🛒
           </button>
         `;
 

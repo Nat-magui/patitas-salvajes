@@ -30,7 +30,6 @@
   <body>
     <!-- Contenedor principal de toda la pagina -->
     <div class="contenido">
-      
       <!-- CABECERA con el menu de navegacion -->
       <header>
         <nav class="navegacion" aria-label="Navegacion principal">
@@ -55,8 +54,12 @@
           <ul class="nav-lista">
             <!-- Cada item nos lleva a una seccion distinta -->
             <li><a href="index.html" class="activo">Inicio</a></li>
-            <li><a href="productos.html" class="activo">Productos - Peluditos</a></li>
-            <li><a href="api-productos.html" class="activo">Productos - Karens</a></li>
+            <li>
+              <a href="productos.html" class="activo">Productos - Peluditos</a>
+            </li>
+            <li>
+              <a href="api-productos.html" class="activo">Productos - Karens</a>
+            </li>
             <li><a href="reseñas.html" class="activo">Reseñas</a></li>
             <li><a href="contacto.html" class="activo">Contacto</a></li>
             <li>
@@ -75,7 +78,6 @@
 
       <!-- CONTENIDO PRINCIPAL de la pagina -->
       <main>
-
         <!-- Seccion de bienvenida con imagen de portada y texto encima -->
         <section class="bienvenida-superpuesta">
           <img
@@ -87,22 +89,18 @@
           <div class="texto-portada">
             <h1>Bienvenidos a Patitas Felices</h1>
             <p>
-              Una tienda pensada con amor para mimar a los michis que mas queres 🐱💖
+              Una tienda pensada con amor para mimar a los michis que mas queres
+              🐱💖
             </p>
           </div>
         </section>
 
         <!-- Seccion con video de YouTube insertado -->
         <section class="video-section" aria-labelledby="titulo-video">
-          <h2 id="titulo-video">Conoce nuestro proposito</h2>
-          <div class="video-responsive">
-            <!-- Video embebido que se adapta al ancho de la pantalla -->
-            <iframe
-              src="https://www.youtube.com/embed/pDWzWHksf60"
-              title="Video de presentacion sobre los michis y la tienda"
-              frameborder="0"
-              allowfullscreen
-            ></iframe>
+          <h2 id="titulo-video">Conocé nuestro propósito</h2>
+          <div class="proposito-imagen">
+            <img src="img/proposito.jpg" alt="Gatito mirando al horizonte" />
+            <a href="nosotras.html" class="boton-proposito">Descubrilo</a>
           </div>
         </section>
       </main>

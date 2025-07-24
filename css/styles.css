@@ -455,6 +455,53 @@ main {
   background-color: var(--verde-hover);
 }
 
+/* ===================================== */
+/*       Seccion Proposito en Index      */
+/* ===================================== */
+.proposito-seccion {
+  background-color: #fffafc;
+  padding: 40px 20px;
+  border-radius: 20px;
+  max-width: 1000px;
+  margin: 50px auto;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.proposito-texto {
+  font-size: 1.1rem;
+  margin: 20px 0;
+  line-height: 1.6;
+  color: #444;
+}
+
+.proposito-contenido {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.proposito-img {
+  max-width: 400px;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.btn-descubrir {
+  background-color: #f8a5c2;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-descubrir:hover {
+  background-color: #f78fb3;
+}
+
 
 /* =========================== */
 /* Video embebido desde YouTube */
@@ -911,6 +958,64 @@ button:hover {
 
 #origen .galeria-michis img:hover {
   transform: scale(1.03) translateY(-2px);
+}
+
+.fondo-rosa {
+  background-color: var(--rosa-patitas);
+  padding: 4rem 1rem;
+  border-radius: 20px;
+  margin-bottom: 2rem;
+}
+
+.fondo-lavanda {
+  background-color: #f3e6f5; /* Lavanda pastel */
+  padding: 4rem 1rem;
+  border-radius: 20px;
+  margin-top: 2rem;
+}
+
+h2 {
+  font-size: 2rem;
+  color: var(--verde-salvajes);
+  margin-bottom: 1rem;
+}
+
+main p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--gris-texto);
+}
+
+.frase-motivadora {
+  font-size: 1.4rem;
+  font-style: italic;
+  color: var(--acento);
+  padding: 2rem 1rem;
+  margin: 2rem auto;
+  max-width: 800px;
+  border-left: 4px solid var(--acento);
+  background-color: #fff0f5;
+  border-radius: 12px;
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: aparecer 0.8s ease-out forwards;
+}
+
+@keyframes aparecer {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.subtitulo-equipo {
+  font-style: italic;
+  color: var(--gris-texto-suave);
+  margin-top: -10px;
+  margin-bottom: 20px;
 }
 
 @media (max-width: 600px) {
